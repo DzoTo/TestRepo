@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 public interface SchoolRepository extends JpaRepository<School, Long> {
     School findSchoolBySchoolName(String schoolName);
 
-    @Query("select s.numberOfStudents from School s")
-    int findStudentsOfSchool();
+    @Query("select s.numberOfStudents from School s where s.id = :id")
+    int findStudentsOfSchool(Long id);
 }
